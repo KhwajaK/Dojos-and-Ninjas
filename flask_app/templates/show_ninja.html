@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Dojos</title>
+</head>
+<body>
+    <div class="p-2 col-5 mx-auto my-6">
+        <h1>Ninja Info</h1>
+            <table class="table table-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="row">{{ ninja["id"] }}</th>
+                <tr>    
+                    <th scope="col">First</th>
+                    <td> {{ninja['first_name']}} </td>
+                </tr>
+                <tr>
+                    <th scope="col">Last</th>
+                    <td> {{ninja['last_name']}} </td>
+                </tr>
+                <tr>
+                    <th scope="col">Age</th>
+                    <td> {{ninja['age']}} </td>
+                </tr>
+                <tr>
+                    <th scope="col">Dojo</th>
+                    <td> {{dojo['name'] }}</td>
+                </tr>
+                    <th scope="col">Actions</th>
+                    <td><a href='/update_ninja'>edit</a> | <a href="/ninja/delete/{{ninja.id}}">delete</a></td>
+                </tr>
+            </table>
+    </div>
+    <div class="col-5 mx-auto">
+        <a href="/dojos">Home</a>
+    </div>
+</body>
+</html>

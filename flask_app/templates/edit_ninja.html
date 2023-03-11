@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Dojos</title>
+</head>
+<body>
+    <div class="d-flex">
+    <form action="/update_ninja" method="post" class="p-3 col-4 mx-auto my-5 bg-dark text-light">
+        <h2 class="text-center text-success">Edit Ninja</h2>
+        <div class="form-group">
+            <input type="hidden" name="id" value="{{one_ninja.id}}">
+            <input type="hidden" name="dojo_id" value="{{one_ninja.dojo_id}}">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" class="form-control" value="{{one_ninja.first_name}}">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" class="form-control" value="{{one_ninja.last_name}}">
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="text" name="age" id="age" class="form-control" value="{{one_ninja.age}}">
+        </div>
+        <input type="submit" value="Update" class="btn btn-success btn-outline-dark">
+    </form>
+    </div>
+    <div class="d-flex justify-content-start col-4 mx-auto">
+    <a href="/dojo/{{one_ninja.dojo_id}}">Back to Dojo</a>
+    </div>
+</body>
+</html>

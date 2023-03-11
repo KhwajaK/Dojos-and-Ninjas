@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Dojo</title>
+</head>
+<body>
+    <div class="p-2 col-6 mx-auto my-6">
+        <h1>{{ one_dojo.name }} Ninjas</h1>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ninja in one_dojo.ninjas %}
+                    <tr>
+                        <td> {{ninja.first_name}} </td>
+                        <td> {{ninja.last_name}} </td>
+                        <td> {{ninja.age}} </td>
+                        <td><a href="/update_ninja/{{ninja.id}}">edit</a> | <a href="/ninja/delete/{{ninja.id}}/{{one_dojo.id}}">delete</a></td> 
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+    <div class="col-8 mx-auto">
+        <a href="/dojos">Home</a>
+    </div>
+</body>
+</html>
